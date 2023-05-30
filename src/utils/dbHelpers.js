@@ -22,7 +22,7 @@ export const getUser = async () => {
     headers: myHeaders,
     redirect: "follow",
   };
-  return await fetch("http://localhost:5000/users/me", requestOptions)
+  return await fetch(`${REACT_APP_BACKEND_URL}users/me`, requestOptions)
     .then((response) => {
       if (response.status === 401) {
         localStorage.setItem(
@@ -60,7 +60,7 @@ export const getMonthlyExpense = async (year, month) => {
     redirect: "follow",
   };
 
-  return await fetch("http://localhost:5000/expense/monthly", requestOptions)
+  return await fetch(`${REACT_APP_BACKEND_URL}/expense/monthly`, requestOptions)
     .then((response) => {
       if (response.status === 401) {
         localStorage.setItem(
@@ -92,7 +92,7 @@ export const getSixMonthExpenses = async () => {
     redirect: "follow",
   };
 
-  return await fetch("http://localhost:5000/expense/sixmonth", requestOptions)
+  return await fetch(`${REACT_APP_BACKEND_URL}expense/sixmonth`, requestOptions)
     .then((response) => {
       if (response.status === 401) {
         localStorage.setItem(
@@ -143,7 +143,7 @@ export const addExpense = async (
     redirect: "follow",
   };
 
-  return await fetch("http://localhost:5000/expense/new", requestOptions)
+  return await fetch(`${REACT_APP_BACKEND_URL}expense/new`, requestOptions)
     .then((response) => {
       if (response.status === 401) {
         localStorage.setItem(
@@ -182,7 +182,7 @@ export const deleteExpense = async (month, year, id) => {
     redirect: "follow",
   };
 
-  return await fetch("http://localhost:5000/expense/delete", requestOptions)
+  return await fetch(`${REACT_APP_BACKEND_URL}expense/delete`, requestOptions)
     .then((response) => {
       if (response.status === 401) {
         localStorage.setItem(
