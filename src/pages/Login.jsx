@@ -32,7 +32,7 @@ const Login = () => {
       redirect: "follow",
     };
 
-    fetch(`${REACT_APP_BACKEND_URL}users/login`, requestOptions)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}users/login`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
