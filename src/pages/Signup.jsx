@@ -42,11 +42,12 @@ const Signup = () => {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setIsLoggedIn(true);
         setUserName(result.name);
         localStorage.setItem("token", result.token);
-        localStorage.setItem("user", { name: result.name, isAuthed: true });
+        const user = { name: result.name, isAuthed: true };
+        localStorage.setItem("user", JSON.stringify(user));
         navigate("/dashboard");
       })
       .catch((error) => console.log("error", error));

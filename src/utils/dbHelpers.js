@@ -53,8 +53,8 @@ export const getMonthlyExpense = async (year, month) => {
   myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
   var urlencoded = new URLSearchParams();
-  urlencoded.append("year", year);
-  urlencoded.append("month", months[month]);
+  urlencoded.append("year", 2023);
+  urlencoded.append("month", "January");
 
   var requestOptions = {
     method: "POST",
@@ -64,7 +64,7 @@ export const getMonthlyExpense = async (year, month) => {
   };
 
   return await fetch(
-    `${process.env.REACT_APP_BACKEND_URL}/expense/monthly`,
+    `${process.env.REACT_APP_BACKEND_URL}expense/monthly`,
     requestOptions
   )
     .then((response) => {
@@ -76,6 +76,7 @@ export const getMonthlyExpense = async (year, month) => {
         localStorage.setItem("token", "");
         throw new Error("unauthorized");
       }
+      // console.log(response);
       return response.json();
     })
     .then((result) => {

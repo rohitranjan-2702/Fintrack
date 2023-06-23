@@ -17,10 +17,11 @@ import Profile from "./demo/Profile";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("user")?.isAuthed || false
+    JSON.parse(localStorage.getItem("user"))?.isAuthed || false
   );
+  // console.log("loggedIn", isLoggedIn);
   const [userName, setUserName] = useState(
-   localStorage.getItem("user")?.name || ""
+    JSON.parse(localStorage.getItem("user"))?.name || ""
   );
   const logout = () => {
     localStorage.removeItem("token");
@@ -41,14 +42,14 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/Videos" element={<Videos />} />
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/expenses" element={<Expense />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-            </Route>
+            {/* <Route element={<ProtectedRoutes />}> */}
+            <Route path="/expenses" element={<Expense />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            {/* </Route>/ */}
             <Route path="/invest" element={<Invest />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-          
+
           <Footer />
         </LoginContext.Provider>
       </BrowserRouter>

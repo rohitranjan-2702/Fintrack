@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ExpenseChart from "../components/ExpenseChart";
 import ExpenseCard from "../components/ExpenseCard";
@@ -21,6 +21,7 @@ const Expense = () => {
       }
       let expenseSum = 0;
       let incomeSum = 0;
+      // console.log(expenses);
       expenses.forEach((item) => {
         if (item.type === "income") {
           incomeSum += item.amount;

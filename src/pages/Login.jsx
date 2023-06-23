@@ -35,7 +35,7 @@ const Login = () => {
     fetch(`${process.env.REACT_APP_BACKEND_URL}users/login`, requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setIsLoggedIn(true);
         setUserName(result.name);
         localStorage.setItem("token", result.token);
